@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRDC - சமூக விழிப்புணர்வு மற்றும் பிராந்திய அபிவிருத்தி பேரவை</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #16425b;
+            --teal: #2a7b88;
+            --gold: #c59b27;
+            --green: #2e6f40;
+            --light-bg: #f4f7f8;
+            --white: #ffffff;
+            --text-dark: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Tamil', 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            height: 55px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--teal);
+            display: block;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--teal));
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .hero img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.1rem;
+            color: #e0f2f1;
+            margin-bottom: 25px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b0881e;
+        }
+
+        /* General Sections */
+        section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: var(--gold);
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Box */
+        .about-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--green);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Vision & Mission Grid */
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .card.vision { border-top: 5px solid var(--teal); }
+        .card.mission { border-top: 5px solid var(--gold); }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.35rem;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .value-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            border-bottom: 4px solid var(--green);
+        }
+
+        .value-item h4 {
+            color: var(--teal);
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        /* Objectives List */
+        .objectives-box {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .objectives-list {
+            list-style: none;
+        }
+
+        .objectives-list li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .objectives-list li:last-child {
+            border-bottom: none;
+        }
+
+        .objectives-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-area">
+                <img src="logo.jpg" alt="CSRDC Logo">
+                <div class="logo-text">
+                    <h1>CSRDC</h1>
+                    <span>சமூக விழிப்புணர்வு மற்றும் பிராந்திய அபிவிருத்தி பேரவை</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">எங்களைப் பற்றி</a></li>
+                <li><a href="#vision-mission">தொலைநோக்கு & இலக்கு</a></li>
+                <li><a href="#values">விழுமியங்கள்</a></li>
+                <li><a href="#objectives">நோக்கங்கள்</a></li>
+                <li><a href="#contact">தொடர்புக்கு</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="logo.jpg" alt="CSRDC Emblem">
+        <h2>சமூக விழிப்புணர்வு மற்றும் பிராந்திய அபிவிருத்தி பேரவை</h2>
+        <p class="subtitle">Civil Society & Regional Development Council (CSRDC)</p>
+        <a href="#about" class="btn">மேலும் அறிய</a>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">எங்களைப் பற்றி (About Us)</h2>
+        <div class="about-card">
+            <p>எமது பிராந்தியத்தில் சமூக நலன், சட்ட விழிப்புணர்வு, கிராமிய உள்கட்டமைப்பு மற்றும் நிலையான அபிவிருத்திப் பணிகளை முன்னெடுக்கும் நோக்குடன் <strong>"சமூக விழிப்புணர்வு மற்றும் பிராந்திய அபிவிருத்தி பேரவை" (Civil Society & Regional Development Council - CSRDC)</strong> எனும் பெயரில் ஒரு தன்னார்வ, இலாப நோக்கற்ற இந்த அமைப்பு முறைப்படி உருவாக்கப்பட்டுள்ளது.</p>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision-mission">
+        <h2 class="section-title">தொலைநோக்கு மற்றும் பணி இலக்கு</h2>
+        <div class="vm-grid">
+            <div class="card vision">
+                <h3>தொலைநோக்கு (Vision)</h3>
+                <p>"ஒருங்கிணைந்த சிவில் சமூகத் தலைமையின் மூலம் பொறுப்புக்கூறல்மிக்க ஆளுகை, சட்ட ரீதியான அதிகாரமளித்தல் மற்றும் நிலையான சமூக-பொருளாதார வளர்ச்சியை மையமாகக் கொண்ட முன்மாதிரிப் பிராந்தியத்தை உருவாக்குதல்."</p>
+            </div>
+            <div class="card mission">
+                <h3>பணி இலக்கு (Mission)</h3>
+                <p>"சிவில் சமூக அமைப்புகளை ஒருங்கிணைத்தல், பொதுமக்களின் உரிமைகளைப் பாதுகாத்தல், வெளிப்படைத்தன்மையான நிருவாகத்தை ஊக்குவித்தல் மற்றும் ஆதாரப்பூர்வமான பிராந்திய வளர்ச்சிக் கொள்கைகளை நடைமுறைப்படுத்துவதன் மூலம் பிராந்திய முன்னுரிமைகளை ஆராய்ந்து, பரிந்துரைத்து ஒருங்கிணைத்தல்."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section id="values">
+        <h2 class="section-title">எமது விழுமியங்கள் (Core Values)</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <h4>1. வெளிப்படைத்தன்மை (Transparency)</h4>
+                <p>நிதி மற்றும் நிருவாகச் செயல்பாடுகளில் நேர்மையைப் பேணுதல்.</p>
+            </div>
+            <div class="value-item">
+                <h4>2. சமத்துவம் (Inclusivity)</h4>
+                <p>இனம், மதம், பாலினம் கடந்து அனைத்துத் தரப்பு மக்களின் குரலுக்கும் முன்னுரிமை அளித்தல்.</p>
+            </div>
+            <div class="value-item">
+                <h4>3. பொறுப்புக்கூறல் (Accountability)</h4>
+                <p>சமூகப் பணிகளிலும் மக்கள் நலனிலும் பொறுப்புடன் செயலாற்றுதல்.</p>
+            </div>
+            <div class="value-item">
+                <h4>4. ஆதாரப்பூர்வ அணுகுமுறை (Evidence-based Action)</h4>
+                <p>முறையான கள ஆய்வுகள் மற்றும் சட்டப் பகுப்பாய்வுகளின் அடிப்படையில் முடிவுகளை எடுத்தல்.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives -->
+    <section id="objectives">
+        <h2 class="section-title">பிரதான நோக்கங்கள் (Objectives)</h2>
+        <div class="objectives-box">
+            <ul class="objectives-list">
+                <li>சம்மாந்துறை பிரதேசத்தின் பிராந்திய அபிவிருத்தி மற்றும் சிவில் சமூகத்தின் மேம்பாட்டுக்காகச் செயற்படுதல்.</li>
+                <li>கல்வி, சுகாதாரம், சமூகம் மற்றும் கலாபூர்வமான நல்வாழ்வை மேம்படுத்துதல்.</li>
+                <li>பிராந்திய மக்களின் கல்வி, சுகாதாரம், சட்டம் மற்றும் சூழல் பாதுகாப்பு தொடர்பான விழிப்புணர்வை உயர்த்தும் வகையில் துண்டுப்பிரசுரங்கள், செய்தி மடல்கள் மற்றும் வெளியீடுகளைத் தயாரித்து வழங்குதல்.</li>
+                <li>இலாப நோக்கற்ற முறையில் (Non-profit) முழுக்க முழுக்கத் தன்னார்வத் தொண்டு நடவடிக்கைகளை முன்னெடுத்தல்.</li>
+                <li>பின்தங்கிய மக்களின் அடிப்படைத் தேவைகளைப் பூர்த்தி செய்ய உதவிகளை வழங்குதல் மற்றும் வழிகாட்டுதல்.</li>
+                <li>கல்வி அல்லது விளையாட்டுத்துறையில் சாதனை படைக்கும் பொருளாதார ரீதியில் சிரமப்படும் மாணவர்களுக்கு ஊக்குவிப்பு மற்றும் நிதியுதவிகளை வழங்குதல்.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <h3>CSRDC - சம்மாந்துறை</h3>
+        <p>சமூக விழிப்புணர்வு மற்றும் பிராந்திய அபிவிருத்தி பேரவை</p>
+        <p>Civil Society & Regional Development Council</p>
+        <p style="margin-top: 15px; font-size: 0.85rem; color: #b0c4de;">© 2026 CSRDC. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+    </footer>
+
+</body>
+</html>
